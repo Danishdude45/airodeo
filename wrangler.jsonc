@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "rodeo",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+
+  // Artifacts: the demo repo and one fork per rider live in this namespace.
+  "artifacts": [{ "binding": "ARTIFACTS", "namespace": "rodeo" }],
+
+  // Workers AI: three riders and one judge.
+  "ai": { "binding": "AI" },
+
+  // D1: requests, lanes, the activity log and the token ledger.
+  "d1_databases": [{ "binding": "DB", "database_name": "rodeo-db", "database_id": "PASTE-YOUR-D1-ID" }],
+
+  // Queues: races, merges and undos run in the background, several at once.
+  "queues": {
+    "producers": [{ "binding": "JOBS", "queue": "rodeo-jobs" }],
+    "consumers": [{ "queue": "rodeo-jobs", "max_batch_size": 10, "max_batch_timeout": 1, "max_retries": 0, "max_concurrency": 20 }]
+  },
+
+  // The owner PIN. Anyone can watch; only the owner can send requests and ship them.
+  "vars": { "RODEO_PIN": "change-me" }
+}
