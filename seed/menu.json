@@ -1,0 +1,7 @@
+[
+  { "name": "Drip Coffee", "price": 3.00, "note": "House roast, bottomless refills" },
+  { "name": "Latte", "price": 4.75, "note": "Double shot, whole or oat milk" },
+  { "name": "Cappuccino", "price": 4.50, "note": "" },
+  { "name": "Cold Brew", "price": 4.25, "note": "Steeped 18 hours" },
+  { "name": "Cinnamon Roll", "price": 3.95, "note": "Baked every morning" }
+]
